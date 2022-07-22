@@ -2,6 +2,7 @@ from time import time
 from opcoes.cadastros import menu_cadastros
 import os, sys, time
 from opcoes.consultas import menu_consultas
+from opcoes.simulacao import simulacao
 
 
 while True:
@@ -44,7 +45,8 @@ while True:
        menu_consultas()
 
     if opcao == 3:
-        print('3')
+        os.system('cls')
+        simulacao()
 
     if opcao == 4:
         os.system('cls')

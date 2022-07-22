@@ -1,7 +1,7 @@
 import csv
 import os
 import sys
-from time import time
+import time
 
 def consulta_areas():
 

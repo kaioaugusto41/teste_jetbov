@@ -1,17 +1,19 @@
+import csv
+import os
+import sys
+import time
 
-from funcoes.cadastro_animal import cadastro_animal
-from funcoes.cadastro_area import cadastro_area
-import os, time, sys
-from funcoes.consulta_animais import consulta_animais
+def consulta_animais():
 
-from funcoes.consulta_areas import consulta_areas
-
-def menu_consultas():
-
+    print('{}Brinco{}Peso Inicial\n{}'.format(14*' ', 27*' ', 71*'_'))
+    with open('./data/animais.csv', newline='', encoding='utf-8') as file:
+        linhas = csv.reader(file)
+        for linha in linhas:
+            print('{}{}{}{}{} Kg'.format(round((35-len(linha[0]))/2)*' ', linha[0], round((35-len(linha[0]))/2)*' ', round((35-len(linha[1]))/2)*' ', linha[1], round((35-len(linha[1]))/2)*' '))
+    print(71*'_')
     while True:
-        os.system('cls')
-        print('\n{}Digite uma das opções abaixo:{}\n'.format(20*'_', 20*'_'))
-        print('{}1 - Consultar áreas    2 - Consultar animais   3 - Voltar    4 - Sair{}\n\n'.format(2*'', 2*''))
+        print('\n')
+        print('1 - Voltar    2 - Sair\n\n')
         opcao = input('Digite a opção desejada:').strip()
 
 
@@ -30,9 +32,9 @@ def menu_consultas():
             continue
 
         # Valida se o valor é entre 1 e 4.
-        if int(opcao) < 1 or int(opcao) > 4:
+        if int(opcao) < 1 or int(opcao) > 2:
             os.system('cls')
-            print('A opção deve ser entre 1 e {}'.format(str(4)))
+            print('A opção deve ser entre 1 e {}'.format(str(2)))
             time.sleep(2)
             continue
 
@@ -42,21 +44,13 @@ def menu_consultas():
         # Cadastro de áreas.
         if opcao == 1:
             os.system('cls')
-            consulta_areas()
+            break
 
         # Cadastro de animais
         if opcao == 2:
             os.system('cls')
-            consulta_animais()
-
-        # Voltar
-        if opcao == 3:
-            os.system('cls')
-            return breakpoint
-        
-        # Sair
-        if opcao == 4:
-            os.system('cls')
             print('O programa será fechado, até mais :)')
             time.sleep(3)
             sys.exit()
+
+

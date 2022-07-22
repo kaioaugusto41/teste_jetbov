@@ -100,7 +100,7 @@ def cadastro_animal():
                 w.writerow(lista_dados)
             os.system('cls')
             print('Animal cadastrado com sucesso!')
-            time.sleep(5)
+            time.sleep(2)
             break
 
         if int(opcao) == 2:
