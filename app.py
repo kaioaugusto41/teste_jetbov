@@ -1,6 +1,7 @@
 from time import time
 from opcoes.cadastros import menu_cadastros
 import os, sys, time
+from opcoes.consultas import menu_consultas
 
 
 while True:
@@ -39,7 +40,8 @@ while True:
         menu_cadastros()
 
     if opcao == 2:
-        print('2')
+       os.system('cls')
+       menu_consultas()
 
     if opcao == 3:
         print('3')

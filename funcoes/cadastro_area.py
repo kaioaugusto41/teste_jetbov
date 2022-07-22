@@ -1,5 +1,4 @@
-import os
-import time
+import time, csv, os, sys
 
 def mensagem_campo_vazio(nome_campo):
     """Mensagem de erro caso o campo setado esteja vazio"""
@@ -19,6 +18,13 @@ def cadastro_area():
         nome = input('Nome da nova área: ').strip()
         if nome == '':
             mensagem_campo_vazio('nome')
+        if len(nome) > 12:
+            os.system('cls')
+            print('O campo nome não pode ter mais que 12 caracteres.')
+            time.sleep(3)
+            os.system('cls')
+            continue
+
         else:
             lista_dados.append(nome)
             os.system('cls')
@@ -83,10 +89,51 @@ def cadastro_area():
                 lista_dados.append(gmd)
                 os.system('cls')
                 break
-    print('\n{}CONFIRME OS DADOS ABAIXO{}\n'.format(23*'_', 24*'_'))
-    print('Nome{}{}\nQuantidade máxima de animais{}{}\nGMD{}{}\n\n'.format(47*'_', lista_dados[0], 23*'_', lista_dados[1], 48*'_', lista_dados[2]))
     while True:
-        print('1 - Salvar   2 - Criar novo   3 - Voltar   4 - Sair\n')
+        print('\n{}CONFIRME OS DADOS ABAIXO{}\n'.format(15*'_', 15*'_'))
+        print('Nome{}{}\nQuantidade de animais{}{}\nGMD{}{}\n\n'.format((50-len(nome))*'.', lista_dados[0], (33-len(quantidade_animais))*'.', lista_dados[1], (51-3)*'.', lista_dados[2]))
+        print(' 1 - Salvar   2 - Criar novo   3 - Voltar   4 - Sair\n')
 
-        opcao = input('Digite a opção desejada:').strip()
+        opcao = input(' Digite a opção desejada:').strip()
 
+        if opcao == '':
+            os.system('cls')
+            print('O campo de opções não pode ser vazio.')
+            time.sleep(2)
+            continue
+
+        # Valida se o valor é numérico.
+        if not opcao.isnumeric():
+            os.system('cls')
+            print('A opção deve ser um número.')
+            time.sleep(2)
+            continue
+
+        # Valida se o valor é entre 1 e 4.
+        if int(opcao) < 1 or int(opcao) > 4:
+            os.system('cls')
+            print('A opção deve ser entre 1 e {}'.format(str(4)))
+            time.sleep(2)
+            continue
+
+        if int(opcao) == 1:
+            with open('./data/areas.csv', 'a', newline='', encoding='utf-8') as file:
+                w = csv.writer(file)
+                w.writerow(lista_dados)
+            os.system('cls')
+            print('Área cadastrada com sucesso!')
+            time.sleep(2)
+            break
+
+        if int(opcao) == 2:
+            os.system('cls')
+            cadastro_area()
+
+        if int(opcao) == 3:
+            break
+
+        if int(opcao) == 4:
+            os.system('cls')
+            print('O programa será fechado, até mais :)')
+            time.sleep(3)
+            sys.exit()
