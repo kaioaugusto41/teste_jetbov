@@ -38,7 +38,7 @@ python app.py
 ## 🚩 Realizar cadastro de áreas:
 
 
-### 🔩 Escolha a opção:
+### 💠	 Escolha a opção:
 
 ```
 1 - Cadastros > 1 Cadastrar área
@@ -47,7 +47,7 @@ python app.py
 ## 🐄	 Realizar cadastro de animais:
 
 
-### 🔩 Escolha a opção:
+### 💠	 Escolha a opção:
 
 ```
 1 - Cadastros > 2 Cadastrar animal
@@ -56,7 +56,7 @@ python app.py
 ## 🔃 Realizar rotação:
 
 
-### 🔩 Escolha a opção:
+### 💠	 Escolha a opção:
 
 ```
 3 - Simulação
