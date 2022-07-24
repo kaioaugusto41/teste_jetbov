@@ -7,7 +7,6 @@ o levantamento de quilos ganhos conforme as movimentações forem sendo realizad
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-Consulte **Implantação** para saber como implantar o projeto.
 
 ### 📋 Pré-requisitos
 
@@ -26,7 +25,6 @@ Abra o CMD, digite cd e o caminho da pasta, como a seguir:
 cd "C:\Users\username\Desktop\teste_jetbov"
 ```
 
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
 
 ## ⚙️ Executando o programa
 
@@ -35,5 +33,32 @@ Termine com um exemplo de como obter dados do sistema ou como usá-los para uma 
 
 ```
 python app.py
+```
+
+## ⚙️ Realizar cadastro de áreas:
+
+
+### 🔩 Escolha a opção:
+
+```
+1 - Cadastros > 1 Cadastrar área
+```
+
+## ⚙️ Realizar cadastro de animais:
+
+
+### 🔩 Escolha a opção:
+
+```
+1 - Cadastros > 2 Cadastrar animal
+```
+
+## ⚙️ Realizar rotação:
+
+
+### 🔩 Escolha a opção:
+
+```
+3 - Simulação
 ```
 
