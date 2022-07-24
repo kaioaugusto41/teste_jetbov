@@ -35,7 +35,7 @@ cd "C:\Users\username\Desktop\teste_jetbov"
 python app.py
 ```
 
-## ⚙️ Realizar cadastro de áreas:
+## 🚩 Realizar cadastro de áreas:
 
 
 ### 🔩 Escolha a opção:
@@ -44,7 +44,7 @@ python app.py
 1 - Cadastros > 1 Cadastrar área
 ```
 
-## ⚙️ Realizar cadastro de animais:
+## 🐄	 Realizar cadastro de animais:
 
 
 ### 🔩 Escolha a opção:
@@ -53,7 +53,7 @@ python app.py
 1 - Cadastros > 2 Cadastrar animal
 ```
 
-## ⚙️ Realizar rotação:
+## 🔃 Realizar rotação:
 
 
 ### 🔩 Escolha a opção:
