@@ -16,8 +16,12 @@ def cadastro_area():
     while True:
         print('\n{}CADASTRAR NOVA ÁREA{}\n'.format(26*'_', 26*'_'))
         nome = input('Nome da nova área: ').strip()
+
+        # Valida se o campo nome é vazio.
         if nome == '':
             mensagem_campo_vazio('nome')
+        
+        # Valida se o campo não é maior que 12 caracteres.
         if len(nome) > 12:
             os.system('cls')
             print('O campo nome não pode ter mais que 12 caracteres.')
@@ -36,8 +40,11 @@ def cadastro_area():
         print('\n{}CADASTRAR NOVA ÁREA{}\n'.format(26*'_', 26*'_'))
         quantidade_animais = input('Quantidade máxima de animais: ').strip()
        
+       # Valida se o campo quantidade de animais não é vazio.
         if quantidade_animais == '':
             mensagem_campo_vazio('Quantidade máxima de animais')
+
+        # Vaida se o campo quantidade de animais não é vazio.
         if not quantidade_animais.isnumeric():
             os.system('cls')
             print('O campo quantidade máxima de animais deve ser um valor numérico e inteiro.')
@@ -53,25 +60,31 @@ def cadastro_area():
         print('\n{}CADASTRAR NOVA ÁREA{}\n'.format(26*'_', 26*'_'))
         gmd = input('GMD: ').strip()
 
+        # Valida se o campo GMD nao é vazio.
         if gmd == '':
             mensagem_campo_vazio('GMD')
             continue
 
+        # Valida se o campo GMD tem mais que um ponto ou vírgula.
         if gmd.count(',') > 1 or gmd.count('.') > 1:
             os.system('cls')
             print('Formato inválido para o campo GMD, segue exemplo: 1.5')
             time.sleep(3)
             continue
 
+        # Se o campo GMD tiver apenas um ponto...
         if gmd.count(".") == 1:
+            # O ponto é transformado em vírgula.
             gmd = gmd.replace('.', ',')
 
+        # Valida se o campo GMD é numérico.
         if (gmd.replace(',', '').isnumeric() == False):      
             os.system('cls')
             print('O campo GMD deve ser um valor numérico.')
             time.sleep(3)
             continue
 
+        # Valida se o campo GMD tem apenas um ponto ou vírgula.
         if gmd.replace(',', '.').count('.') > 1 or gmd.replace('.', ',').count('.') > 1:
             if gmd.count(',') > 1 or gmd.count('.') > 1:
                 os.system('cls')
@@ -89,6 +102,7 @@ def cadastro_area():
                 lista_dados.append(gmd)
                 os.system('cls')
                 break
+
     while True:
         print('\n{}CONFIRME OS DADOS ABAIXO{}\n'.format(15*'_', 15*'_'))
         print('Nome{}{}\nQuantidade de animais{}{}\nGMD{}{}\n\n'.format((50-len(nome))*'.', lista_dados[0], (33-len(quantidade_animais))*'.', lista_dados[1], (51-3)*'.', lista_dados[2]))
@@ -96,6 +110,7 @@ def cadastro_area():
 
         opcao = input(' Digite a opção desejada:').strip()
 
+        # Valida se a opção não é vazia.
         if opcao == '':
             os.system('cls')
             print('O campo de opções não pode ser vazio.')
@@ -116,6 +131,7 @@ def cadastro_area():
             time.sleep(2)
             continue
 
+        # Se a opção for 1 a área é cadastrada no arquivo areas.csv
         if int(opcao) == 1:
             with open('./data/areas.csv', 'a', newline='', encoding='utf-8') as file:
                 w = csv.writer(file)
@@ -124,14 +140,17 @@ def cadastro_area():
             print('Área cadastrada com sucesso!')
             time.sleep(2)
             break
-
+        
+        # Se a opção for 2 o cadastro é reiniciado.
         if int(opcao) == 2:
             os.system('cls')
             cadastro_area()
 
+        # Se a opção for 3 o programa volta ao menu anterior.
         if int(opcao) == 3:
             break
 
+        # Se a opção for 4 o programa é encerrado.
         if int(opcao) == 4:
             os.system('cls')
             print('O programa será fechado, até mais :)')

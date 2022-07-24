@@ -1,9 +1,8 @@
-
-
 import os, time, csv
 import sys
 
 
+# Função que retorna a quantidade de áreas cadastradas.
 def areas_cadastradas():
     with open('./data/areas.csv', newline='', encoding='utf-8') as file:
         linhas = csv.reader(file)
@@ -12,6 +11,7 @@ def areas_cadastradas():
             areas.append(linha)
     return len(areas)
 
+# Função que retorna a quantidade de animais cadastrados.
 def animais_cadastrados():
     with open('./data/animais.csv', newline='', encoding='utf-8') as file:
         linhas = csv.reader(file)
@@ -21,7 +21,7 @@ def animais_cadastrados():
     return len(animais)
 
 
-
+# Simulação
 def simulacao():
     os.system('cls')
 
@@ -158,7 +158,7 @@ def simulacao():
             while True:
                 os.system('cls')
                 print('\n{}Digite uma das opções abaixo:{}\n'.format(20*'_', 20*'_'))
-                print('{}1 - Continuar cadastrando    2 - Ver resultado   3- Sair{}\n\n'.format(1*' ', 6*' '))
+                print('{}1 - Continuar movimentando    2 - Ver resultado   3- Sair{}\n\n'.format(1*' ', 6*' '))
             
                 opcao = input('Digite a opção desejada:').strip()
 
@@ -217,15 +217,14 @@ def simulacao():
                         if cont == 1:
                             for i in animal:
                                 peso_inicio.append(animais[int(i)-1][1])
-                                
                         for i in animal:
                             brincos_str = brincos_str+' {}({} Kg) '.format(animais[int(i)-1][0], animais_old[int(i)-1][1])
                             porcentagem = ((float(animais[int(i)-1][1])+(int(dias_simulacao[cont-1])*float(areas[int(area)-1][2]))-float(animais_old[int(i)-1][1]))/float(animais_old[int(i)-1][1]))*100
                             brincos_str_fim = brincos_str_fim+' {}({} Kg)+{:.2f}% '.format(animais[int(i)-1][0], (float(animais[int(i)-1][1])+(int(dias_simulacao[cont-1])*float(areas[int(area)-1][2]))), porcentagem)
                             animais[int(i)-1][1]=(float(animais[int(i)-1][1])+(int(dias_simulacao[cont-1])*float(areas[int(area)-1][2])))
-
                         print('{}° movimentação: {}'.format(cont, areas[int(area)-1][0]))
                         print('Duração: {} dias'.format(dias_simulacao[cont-1]))
+                        print('Ganho total: {} Kg'.format((float(dias_simulacao[cont-1])*float(areas[int(area)-1][2]))*len(animais_envolvidos_list)))
                         print(73*'_')
                     print('Resultado: \n')
                     print("Início: {} ".format(brincos_str))

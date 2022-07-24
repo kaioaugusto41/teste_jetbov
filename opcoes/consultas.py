@@ -3,7 +3,6 @@ from funcoes.cadastro_animal import cadastro_animal
 from funcoes.cadastro_area import cadastro_area
 import os, time, sys
 from funcoes.consulta_animais import consulta_animais
-
 from funcoes.consulta_areas import consulta_areas
 
 def menu_consultas():

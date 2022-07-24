@@ -36,18 +36,22 @@ while True:
     # CASO PASSE NAS VALIDAÇÕES O VALOR SE TORNA INTEIRO
     opcao = int(opcao)
 
+    # Se a opção for 1 o menu de cadastros é iniciado.
     if opcao == 1:
         os.system('cls')
         menu_cadastros()
 
+    # Se a opção for 2 o menu de consultas é iniciado.
     if opcao == 2:
        os.system('cls')
        menu_consultas()
 
+    # Se a opção for 3 a simulação de rotação é iniciada.
     if opcao == 3:
         os.system('cls')
         simulacao()
 
+    # Se a opção for 4 o programa é encerrado.
     if opcao == 4:
         os.system('cls')
         print('O programa será fechado, até mais :)')
