@@ -214,13 +214,17 @@ def simulacao():
                         cont+=1
                         brincos_str = ''
                         brincos_str_fim = ''
+                        peso_inicial = 0
+                        peso_final = 0
                         if cont == 1:
                             for i in animal:
                                 peso_inicio.append(animais[int(i)-1][1])
                         for i in animal:
                             brincos_str = brincos_str+' {}({} Kg) '.format(animais[int(i)-1][0], animais_old[int(i)-1][1])
+                            peso_inicial = peso_inicial+float(animais_old[int(i)-1][1])
                             porcentagem = ((float(animais[int(i)-1][1])+(int(dias_simulacao[cont-1])*float(areas[int(area)-1][2]))-float(animais_old[int(i)-1][1]))/float(animais_old[int(i)-1][1]))*100
                             brincos_str_fim = brincos_str_fim+' {}({} Kg)+{:.2f}% '.format(animais[int(i)-1][0], (float(animais[int(i)-1][1])+(int(dias_simulacao[cont-1])*float(areas[int(area)-1][2]))), porcentagem)
+                            peso_final = peso_final+(float(animais[int(i)-1][1])+(int(dias_simulacao[cont-1])*float(areas[int(area)-1][2])))
                             animais[int(i)-1][1]=(float(animais[int(i)-1][1])+(int(dias_simulacao[cont-1])*float(areas[int(area)-1][2])))
                         print('{}° movimentação: {}'.format(cont, areas[int(area)-1][0]))
                         print('Duração: {} dias'.format(dias_simulacao[cont-1]))
@@ -228,8 +232,10 @@ def simulacao():
                         print(73*'_')
                     print('Resultado: \n')
                     print("Início: {} ".format(brincos_str))
-                    print("Fim   : {} \n".format(brincos_str_fim))
-
+                    print("Peso inicial total: {} Kg \n".format(peso_inicial))
+                    print("Fim   : {}".format(brincos_str_fim))
+                    print("Peso final total  : {} Kg".format(peso_final))
+                    print('Ganho total: {:.2f} Kg (+{:.2f}%) \n'.format(peso_final-peso_inicial, ((peso_final-peso_inicial)/peso_inicial)*100))
                     print('1 - Voltar    2 - Sair {}\n\n'.format(6*' '))
    
                     opcao = input('Digite a opção desejada:').strip()
